@@ -12,7 +12,7 @@ jobs:
       with:
         dotnet-version: '6.0.x'
     - name: Restore dependencies
-      run: dotnet restore API.sln
+      run: dotnet restore TestAWS.sln
       working-directory: ${{env.working-directory}}
     - run: dotnet build --no-restore
       working-directory: ${{env.working-directory}}
