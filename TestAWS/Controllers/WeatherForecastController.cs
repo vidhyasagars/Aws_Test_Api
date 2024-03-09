@@ -31,7 +31,7 @@ namespace TestAWS.Controllers
             // read parameter stores
             var connectionString = _configuration.GetValue<string>("MyTestKey");
             var key1 = _configuration.GetValue<string>("key1");
-            var key2 = _configuration.GetValu<string>("key2");
+            var key2 = _configuration.GetValue<string>("key2");
             return new string[] {
                 connectionString,
                 key1,
