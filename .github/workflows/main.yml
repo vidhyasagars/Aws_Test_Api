@@ -1,12 +1,18 @@
 on: [push]
 
 jobs:
-  build:
-  name: Hello world
-  runs-on: ubuntu-latest
-  steps:
-  - uses: actions/checkout@v2
-  - name: Write a multi-line message
-    run: |
-      echo This demo file shows a 
-      echo very basic and easy-to-understand workflow.
+   build:
+    name: Build API
+    runs-on: ubuntu-latest
+    env:
+      working-directory: './src'
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.x'
+    - name: Restore dependencies
+      run: dotnet restore API.sln
+      working-directory: ${{env.working-directory}}
+    - run: dotnet build --no-restore
+      working-directory: ${{env.working-directory}}
