@@ -15,7 +15,7 @@ jobs:
       run: dotnet restore TestAWS.sln
     - run: dotnet build --no-restore
 
- deploy-dev:
+   deploy-dev:
     name: Deploy to Dev
     if: github.event.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
