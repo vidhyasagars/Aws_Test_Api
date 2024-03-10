@@ -13,18 +13,18 @@ builder.Services.AddSwaggerGen();
 //builder.Configuration.AddJsonFile("appsettings.json");
 
 //AWS Parameter Store
-//builder.Configuration.AddSystemsManager(source =>
-//    {
-//        source.Path = "/myapp/dev/";
-//        source.Optional = true;
-//        source.AwsOptions = new Amazon.Extensions.NETCore.Setup.AWSOptions()
-//        {
-//            // pass IAM user secret keys
-//            Credentials = new BasicAWSCredentials("AKIA5FTZASS43SEHVEWI", "C27WbttizPKbUaoEWut4qsO1BVO9quq/pG5wOQX0"),
-//            Region = Amazon.RegionEndpoint.EUNorth1
-//        };
-//    }
-//);
+builder.Configuration.AddSystemsManager(source =>
+    {
+        source.Path = "/myapp/dev/";
+        source.Optional = true;
+        source.AwsOptions = new Amazon.Extensions.NETCore.Setup.AWSOptions()
+        {
+            // pass IAM user secret keys
+            Credentials = new BasicAWSCredentials("AKIA5FTZASS43SEHVEWI", "C27WbttizPKbUaoEWut4qsO1BVO9quq/pG5wOQX0"),
+            Region = Amazon.RegionEndpoint.EUNorth1
+        };
+    }
+);
 
 var app = builder.Build();
 

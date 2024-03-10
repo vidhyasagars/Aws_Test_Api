@@ -26,6 +26,7 @@ namespace TestAWS.Controllers
         }
 
         [HttpGet]
+        [Route("[action]")]
         public IEnumerable<string> MyData()
         {
             // read parameter stores
@@ -40,6 +41,7 @@ namespace TestAWS.Controllers
         }
 
         [HttpGet]
+        [Route("[action]")]
         public async Task<string> MyData2()
         {
             string arn = "arn:aws:secretsmanager:eu-north-1:905418151097:secret:prod-CKpfuu";
